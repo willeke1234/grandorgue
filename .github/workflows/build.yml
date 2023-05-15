@@ -81,10 +81,6 @@ jobs:
             prepare: osx
             build_on: osx
 
-          - run_on: macos-13
-            for: osx
-            prepare: osx
-            build_on: osx
 
     runs-on: ${{ matrix.run_on }}
     steps:
