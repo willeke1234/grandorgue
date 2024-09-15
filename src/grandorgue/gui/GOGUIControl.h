@@ -42,6 +42,8 @@ public:
   GOGUIControl(GOGUIPanel *panel, void *control);
   virtual ~GOGUIControl();
 
+  const void *GetControl() const { return m_control; }
+
   virtual void Load(GOConfigReader &cfg, wxString group);
   virtual void Layout();
 

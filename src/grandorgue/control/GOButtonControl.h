@@ -90,6 +90,7 @@ public:
   void SetPreconfigIndex(unsigned index);
 
   const wxString &GetMidiName() const override { return GetName(); }
+  const wxString &GetODFSection() const override { return m_group; }
 
   wxString GetElementStatus() override;
   std::vector<wxString> GetElementActions() override;

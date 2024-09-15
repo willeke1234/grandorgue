@@ -50,6 +50,7 @@ public:
   const wxString &GetMidiTypeCode() const override;
   const wxString &GetMidiType() const override;
   const wxString &GetMidiName() const override { return GetName(); }
+  const wxString &GetODFSection() const override { return m_group; }
   GOMidiSender *GetMidiSender() override { return &m_sender; }
 
   wxString GetElementStatus() override;

@@ -16,16 +16,15 @@ class GOMidiDialogCreator;
 class GOMidiReceiverBase;
 class GOMidiSender;
 class GOMidiShortcutReceiver;
+class GOGUIPanel;
+class GOManual;
 
 class GOMidiConfigurator {
 private:
   GOMidiDialogCreator &r_DialogCreator;
 
 protected:
-  virtual GOMidiReceiverBase *GetMidiReceiver() { return nullptr; }
-  virtual GOMidiSender *GetMidiSender() { return nullptr; }
   virtual GOMidiShortcutReceiver *GetMidiShortcutReceiver() { return nullptr; }
-  virtual GOMidiSender *GetDivision() { return nullptr; }
 
 public:
   GOMidiConfigurator(GOMidiDialogCreator &dialogCreator)
@@ -33,9 +32,14 @@ public:
 
   virtual ~GOMidiConfigurator() {}
 
+  virtual GOMidiReceiverBase *GetMidiReceiver() { return nullptr; }
+  virtual GOMidiSender *GetMidiSender() { return nullptr; }
+  virtual GOMidiSender *GetDivision() { return nullptr; }
+
   virtual const wxString &GetMidiTypeCode() const = 0;
   virtual const wxString &GetMidiType() const = 0;
   virtual const wxString &GetMidiName() const = 0;
+  virtual const wxString &GetODFSection() const = 0;
 
   void ShowConfigDialog();
 

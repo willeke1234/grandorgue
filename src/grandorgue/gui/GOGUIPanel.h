@@ -87,6 +87,7 @@ public:
   GOOrganController *GetOrganFile();
   const wxString &GetName();
   const wxString &GetGroupName();
+  const ptr_vector<GOGUIControl> &GetControls() { return m_controls; }
 
   // gets the current size info of the window
   virtual void CaptureSizeInfo(const wxTopLevelWindow &win) override;

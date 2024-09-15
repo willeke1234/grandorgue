@@ -91,6 +91,12 @@ dialogs/settings/GOSettingsOrgans.cpp
 dialogs/settings/GOSettingsReverb.cpp
 dialogs/settings/GOSettingsTemperaments.cpp
 dialogs/GOMidiListDialog.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportDialog.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportDataViewModel.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportNode.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportObjectWrapper.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportEvent.cpp
+dialogs/midi-objects-import-export/GOMidiExportImportEventsConverter.cpp
 dialogs/GONewReleaseDialog.cpp
 dialogs/GOOrganSettingsDialog.cpp
 dialogs/GOProgressDialog.cpp

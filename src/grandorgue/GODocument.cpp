@@ -14,6 +14,7 @@
 #include "dialogs/GOOrganSettingsDialog.h"
 #include "dialogs/GOStopsDialog.h"
 #include "dialogs/midi-event/GOMidiEventDialog.h"
+#include "dialogs/midi-objects-import-export/GOMidiExportImportDialog.h"
 #include "document-base/GOView.h"
 #include "gui/GOGUIPanel.h"
 #include "gui/GOGUIPanelView.h"
@@ -187,6 +188,22 @@ void GODocument::ShowMidiList() {
         NULL,
         m_OrganController->GetConfig().m_DialogSizes,
         m_OrganController->GetMidiConfigurators()));
+  }
+}
+
+void GODocument::ShowMidiListExportImport() {
+  if (
+    !showWindow(GODocument::MIDI_LIST_EXPORT_IMPORT, NULL)
+    && m_OrganController) {
+    registerWindow(
+      GODocument::MIDI_LIST_EXPORT_IMPORT,
+      NULL,
+      new GOMidiExportImportDialog(
+        this,
+        NULL,
+        m_OrganController->GetConfig().m_DialogSizes,
+        *m_OrganController,
+        *m_OrganController));
   }
 }
 

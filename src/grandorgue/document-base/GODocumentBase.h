@@ -14,7 +14,14 @@ class GOView;
 
 class GODocumentBase {
 public:
-  enum WindowType { ORGAN_DIALOG, MIDI_EVENT, MIDI_LIST, STOPS, PANEL };
+  enum WindowType {
+    ORGAN_DIALOG,
+    MIDI_EVENT,
+    MIDI_LIST,
+    MIDI_LIST_EXPORT_IMPORT,
+    STOPS,
+    PANEL
+  };
 
 private:
   typedef struct {

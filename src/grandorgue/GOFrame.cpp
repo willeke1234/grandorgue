@@ -84,6 +84,7 @@ EVT_MENU(ID_FILE_CACHE, GOFrame::OnCache)
 EVT_MENU(ID_FILE_CACHE_DELETE, GOFrame::OnCacheDelete)
 EVT_MENU(ID_ORGAN_EDIT, GOFrame::OnOrganSettings)
 EVT_MENU(ID_MIDI_LIST, GOFrame::OnMidiList)
+EVT_MENU(ID_MIDI_LIST_EXPORT_IMPORT, GOFrame::OnMidiListExportImport)
 EVT_MENU(ID_STOPS, GOFrame::OnStops)
 EVT_MENU(ID_MIDI_MONITOR, GOFrame::OnMidiMonitor)
 EVT_MENU(ID_AUDIO_PANIC, GOFrame::OnAudioPanic)
@@ -240,6 +241,11 @@ GOFrame::GOFrame(
     ID_ORGAN_EDIT, _("&Organ settings"), wxEmptyString, wxITEM_CHECK);
   m_audio_menu->Append(
     ID_MIDI_LIST, _("M&idi Objects"), wxEmptyString, wxITEM_CHECK);
+  m_audio_menu->Append(
+    ID_MIDI_LIST_EXPORT_IMPORT,
+    _("M&idi Objects Export/Import"),
+    wxEmptyString,
+    wxITEM_CHECK);
   m_audio_menu->Append(ID_STOPS, _("Stops"), wxEmptyString, wxITEM_CHECK);
   m_audio_menu->AppendSeparator();
   m_audio_menu->Append(
@@ -813,6 +819,9 @@ void GOFrame::OnUpdateLoaded(wxUpdateUIEvent &event) {
     event.Check(m_doc && m_doc->WindowExists(GODocument::ORGAN_DIALOG, NULL));
   else if (event.GetId() == ID_MIDI_LIST)
     event.Check(m_doc && m_doc->WindowExists(GODocument::MIDI_LIST, NULL));
+  else if (event.GetId() == ID_MIDI_LIST_EXPORT_IMPORT)
+    event.Check(
+      m_doc && m_doc->WindowExists(GODocument::MIDI_LIST_EXPORT_IMPORT, NULL));
   else if (event.GetId() == ID_STOPS)
     event.Check(m_doc && m_doc->WindowExists(GODocument::STOPS, NULL));
   else if (event.GetId() == ID_MIDI_LIST)
@@ -1239,6 +1248,11 @@ void GOFrame::OnOrganSettings(wxCommandEvent &event) {
 void GOFrame::OnMidiList(wxCommandEvent &event) {
   if (m_doc)
     m_doc->ShowMidiList();
+}
+
+void GOFrame::OnMidiListExportImport(wxCommandEvent &event) {
+  if (m_doc)
+    m_doc->ShowMidiListExportImport();
 }
 
 void GOFrame::OnStops(wxCommandEvent &event) {
