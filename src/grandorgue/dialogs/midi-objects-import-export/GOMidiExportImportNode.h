@@ -8,6 +8,8 @@
 #ifndef GOMidiExportImportNode_H
 #define GOMidiExportImportNode_H
 
+#include <optional>
+
 #include <wx/wx.h>
 
 #include "GOMidiExportImportEvent.h"
