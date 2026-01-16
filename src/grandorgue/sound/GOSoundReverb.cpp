@@ -40,9 +40,9 @@ void GOSoundReverb::Setup(GOConfig &settings) {
 
   m_engine.clear();
   for (unsigned i = 0; i < m_channels; i++) {
-    Convproc convProc = Convproc();
-    convProc->set_options(Convlevel::OPT_LATE_CONTIN);
-    m_engine.push_back(new Convproc());
+    Convproc *convProc = new Convproc();
+    convProc->set_options(Convproc::OPT_LATE_CONTIN);
+    m_engine.push_back(convProc);
   }
   unsigned val = settings.SamplesPerBuffer();
   if (val < Convproc::MINPART)
